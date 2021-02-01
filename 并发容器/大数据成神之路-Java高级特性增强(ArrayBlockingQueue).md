@@ -1,13 +1,18 @@
 ### **Java高级特性增强-并发容器**
 本部分网络上有大量的资源可以参考，在这里做了部分整理并做了大量勘误，感谢前辈的付出，每节文章末尾有引用列表~
+
 ####**多线程**
+
 ###**集合框架**
+
 ###**NIO**
+
 ###**Java并发容器**
 
 ### ArrayBlockingQueue介绍
 ArrayBlockingQueue是数组实现的线程安全的有界的阻塞队列。
 线程安全是指，ArrayBlockingQueue内部通过“互斥锁”保护竞争资源，实现了多线程对竞争资源的互斥访问。而有界，则是指ArrayBlockingQueue对应的数组是有界限的。 阻塞队列，是指多线程访问竞争资源时，当竞争资源已被某线程获取时，其它要获取该资源的线程需要阻塞等待；而且，ArrayBlockingQueue是按 FIFO（先进先出）原则对元素进行排序，元素都是从尾部插入到队列，从头部开始返回。
+
 
 注意:ArrayBlockingQueue不同于ConcurrentLinkedQueue，ArrayBlockingQueue是数组实现的，并且是有界限的;而ConcurrentLinkedQueue是链表实现的，是无界限的.
 
@@ -124,11 +129,11 @@ public boolean offer(E e) {
 ```
 说明：offer(E e)的作用是将e插入阻塞队列的尾部。如果队列已满，则返回false，表示插入失败；否则，插入元素，并返回true。(01) count表示”队列中的元素个数“。除此之外，队列中还有另外两个遍历takeIndex和putIndex。takeIndex表示下一个被取出元素的索引，putIndex表示下一个被添加元素的索引。它们的定义如下：
 ```
-// 队列中的元素个数
+// 下一个被添加元素的索引
 int takeIndex;
 // 下一个被取出元素的索引
 int putIndex;
-// 下一个被添加元素的索引
+// 队列中的元素个数
 int count;
 ```
 (02) insert()的源码如下：
